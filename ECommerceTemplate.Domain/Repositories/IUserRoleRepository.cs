@@ -7,8 +7,8 @@ namespace ECommerceTemplate.Domain.Repositories
 {
     public interface IUserRoleRepository 
     {
-        void Add(string UserId, string roleName);
-        void Remove(string userId, string roleName);
+        void Add(UserRole userRole);
+        void Remove(UserRole userRole);
         IEnumerable<string> GetRoleNamesByUserId(string userId);
         IEnumerable<User> GetUsersByRoleName(string roleName);
     }
