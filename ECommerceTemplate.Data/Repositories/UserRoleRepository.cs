@@ -20,6 +20,16 @@ namespace ECommerceTemplate.Data.Repositories
             Context.Set<UserRole>().Add(userRole);
         }
 
+        public void Add(string userId, string roleName)
+        {
+            var role = Context.Set<Role>()
+                .Where(r => r.Name == roleName)
+                .FirstOrDefault();
+
+            var userRole = new UserRole { RoleId = role.Id, UserId = userId };
+            Add(userRole);
+        }
+
         public IEnumerable<string> GetRoleNamesByUserId(string userId)
         {
             var query = from ur in Context.Set<UserRole>()
@@ -40,9 +50,21 @@ namespace ECommerceTemplate.Data.Repositories
             return query.ToList();
         }
 
+
+        public void Remove(string userId, string roleName)
+        {
+            var role = Context.Set<Role>()
+               .Where(r => r.Name == roleName)
+               .FirstOrDefault();
+
+            var userRole = new UserRole { RoleId = role.Id, UserId = userId };
+            Remove(userRole);
+        }
+
         public void Remove(UserRole userRole)
         {
             Context.Set<UserRole>().Remove(userRole);
         }
+
     }
 }
