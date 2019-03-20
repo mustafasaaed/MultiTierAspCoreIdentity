@@ -11,6 +11,9 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using ECommerceTemplate.Data;
+using ECommerceTemplate.Domain.Repositories;
+using Microsoft.EntityFrameworkCore;
 
 namespace ECommerceTemplate.Web
 {
@@ -37,12 +40,23 @@ namespace ECommerceTemplate.Web
             //    options.UseSqlServer(
             //        Configuration.GetConnectionString("DefaultConnection")));
 
+
+            services.AddDbContext<AppDbContext>(options =>
+                            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
             //services.AddDefaultIdentity<IdentityUser>()
             //    .AddDefaultUI(UIFramework.Bootstrap4)
             //    .AddEntityFrameworkStores<ApplicationDbContext>();
 
-            services.AddIdentity<IdentityUser, IdentityRole>()
-                .AddDefaultTokenProviders();
+            //services.AddIdentity<IdentityUser, IdentityRole>()
+            //    .AddDefaultTokenProviders();
+
+            services.AddDefaultIdentity<IdentityUser>()
+                .AddDefaultUI(UIFramework.Bootstrap4)
+                .AddEntityFrameworkStores<AppDbContext>();
+
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
