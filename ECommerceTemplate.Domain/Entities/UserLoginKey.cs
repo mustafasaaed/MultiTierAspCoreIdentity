@@ -6,7 +6,7 @@ namespace ECommerceTemplate.Domain.Entities
 {
     public class UserLoginKey
     {
-        public string LoginProvider;
-        public string ProviderKey;
+        public string LoginProvider { get; set; }
+        public string ProviderKey { get; set; }
     }
 }
