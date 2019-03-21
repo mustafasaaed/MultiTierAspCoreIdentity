@@ -80,7 +80,7 @@ namespace ECommerceTemplate.Data
         }
 
         #endregion
-        public UnitOfWork(DbContext context)
+        public UnitOfWork(AppDbContext context)
         {
             this._context = context;
         }
