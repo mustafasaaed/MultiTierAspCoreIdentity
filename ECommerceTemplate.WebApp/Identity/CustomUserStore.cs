@@ -20,11 +20,19 @@ namespace ECommerceTemplate.WebApp.Identity
         IUserSecurityStampStore<ApplicationUser>,
         IUserClaimStore<ApplicationUser>,
         IUserAuthenticationTokenStore<ApplicationUser>,
+        IUserTwoFactorRecoveryCodeStore<ApplicationUser>,
+        IUserAuthenticatorKeyStore<ApplicationUser>,
         IUserTwoFactorStore<ApplicationUser>,
         IUserPhoneNumberStore<ApplicationUser>,
         IUserLockoutStore<ApplicationUser>,
         IQueryableUserStore<ApplicationUser>
     {
+
+        private const string InternalLoginProvider = "[AspNetUserStore]";
+        private const string AuthenticatorKeyTokenName = "AuthenticatorKey";
+        private const string RecoveryCodeTokenName = "RecoveryCodes";
+
+
         private readonly IUnitOfWork _unitOfWork;
 
         public CustomUserStore(IUnitOfWork unitOfWork)
@@ -861,6 +869,66 @@ namespace ECommerceTemplate.WebApp.Identity
 
             return Task.CompletedTask;
         }
+        #endregion
+
+        #region IUserAuthenticatorKeyStore<ApplicationUser>
+
+        public Task SetAuthenticatorKeyAsync(ApplicationUser user, string key, CancellationToken cancellationToken)
+            => SetTokenAsync(user, InternalLoginProvider, AuthenticatorKeyTokenName, key, cancellationToken);
+
+
+        public Task<string> GetAuthenticatorKeyAsync(ApplicationUser user, CancellationToken cancellationToken)
+            => GetTokenAsync(user, InternalLoginProvider, AuthenticatorKeyTokenName, cancellationToken);
+
+        #endregion
+
+
+        #region IUserTwoFactorRecoveryCodeStore<ApplicationUser>
+
+        public Task ReplaceCodesAsync(ApplicationUser user, IEnumerable<string> recoveryCodes, CancellationToken cancellationToken)
+        {
+            var mergedCodes = string.Join(";", recoveryCodes);
+            return SetTokenAsync(user, InternalLoginProvider, RecoveryCodeTokenName, mergedCodes, cancellationToken);
+        }
+
+        public async Task<bool> RedeemCodeAsync(ApplicationUser user, string code, CancellationToken cancellationToken)
+        {
+            if (user == null)
+            {
+                throw new ArgumentNullException(nameof(user));
+            }
+            if (code == null)
+            {
+                throw new ArgumentNullException(nameof(code));
+            }
+
+            var mergedCodes = await GetTokenAsync(user, InternalLoginProvider, RecoveryCodeTokenName, cancellationToken) ?? "";
+            var splitCodes = mergedCodes.Split(';');
+            if (splitCodes.Contains(code))
+            {
+                var updatedcCode = new List<string>(splitCodes.Where(s => s != code));
+                await ReplaceCodesAsync(user, updatedcCode, cancellationToken);
+                return true;
+            }
+            return true;
+
+        }
+
+        public async Task<int> CountCodesAsync(ApplicationUser user, CancellationToken cancellationToken)
+        {
+            if (user == null)
+            {
+                throw new ArgumentNullException(nameof(user));
+            }
+
+            var mergedCodes = await GetTokenAsync(user, InternalLoginProvider, RecoveryCodeTokenName, cancellationToken) ?? "";
+            if (mergedCodes .Length >0)
+            {
+                return mergedCodes.Split(';').Length;
+            }
+            return 0;
+        }
+
         #endregion
 
         #region Private Methods
