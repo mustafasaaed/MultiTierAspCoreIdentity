@@ -55,8 +55,16 @@ namespace ECommerceTemplate.Data.Repositories
 
         public void Update(Role entity)
         {
-            Context.Entry(entity).State = EntityState.Modified;
-            Context.Set<Role>().Attach(entity);
+            if (!Context.Set<Role>().Local.Any(u => u.Id == entity.Id))
+            {
+                Context.Set<Role>().Attach(entity);
+                Context.Entry(entity).State = EntityState.Modified;
+            }
+            else
+            {
+                var oldEntity = this.Find(entity.Id);
+                Context.Entry(oldEntity).CurrentValues.SetValues(entity);
+            }
         }
     }
 }

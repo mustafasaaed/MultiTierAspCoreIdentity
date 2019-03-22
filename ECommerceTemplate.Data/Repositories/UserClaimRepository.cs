@@ -65,8 +65,16 @@ namespace ECommerceTemplate.Data.Repositories
 
         public void Update(UserClaim entity)
         {
-            Context.Entry(entity).State = EntityState.Modified;
-            Context.Set<UserClaim>().Attach(entity);
+            if (!Context.Set<UserClaim>().Local.Any(u => u.Id == entity.Id))
+            {
+                Context.Set<UserClaim>().Attach(entity);
+                Context.Entry(entity).State = EntityState.Modified;
+            }
+            else
+            {
+                var oldEntity = this.Find(entity.Id);
+                Context.Entry(oldEntity).CurrentValues.SetValues(entity);
+            }
         }
     }
 }

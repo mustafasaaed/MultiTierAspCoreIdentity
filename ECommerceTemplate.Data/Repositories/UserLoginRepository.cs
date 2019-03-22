@@ -50,8 +50,17 @@ namespace ECommerceTemplate.Data.Repositories
 
         public void Update(UserLogin entity)
         {
-            Context.Entry(entity).State = EntityState.Modified;
-            Context.Set<UserLogin>().Attach(entity);
+            if (!Context.Set<UserLogin>().Local.Any(ul => ul.ProviderKey == entity.ProviderKey && ul.LoginProvider == entity.LoginProvider))
+            {
+                Context.Set<UserLogin>().Attach(entity);
+                Context.Entry(entity).State = EntityState.Modified;
+            }
+            else
+            {
+                var userLoginKey = new UserLoginKey { LoginProvider = entity.LoginProvider, ProviderKey = entity.ProviderKey };
+                var oldEntity = this.Find(userLoginKey);
+                Context.Entry(oldEntity).CurrentValues.SetValues(entity);
+            }
         }
     }
 }

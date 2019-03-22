@@ -41,8 +41,17 @@ namespace ECommerceTemplate.Data.Repositories
 
         public void Update(UserToken entity)
         {
-            Context.Entry(entity).State = EntityState.Modified;
-            Context.Set<UserToken>().Attach(entity);
+            if (!Context.Set<UserToken>().Local.Any(ut => ut.LoginProvider == entity.LoginProvider && ut.UserId == entity.UserId))
+            {
+                Context.Set<UserToken>().Attach(entity);
+                Context.Entry(entity).State = EntityState.Modified;
+            }
+            else
+            {
+                var userTokenKey = new UserTokenKey { UserId = entity.UserId, LoginProvider = entity.LoginProvider };
+                var oldEntity = this.Find(userTokenKey);
+                Context.Entry(oldEntity).CurrentValues.SetValues(entity);
+            }
         }
     }
 }
