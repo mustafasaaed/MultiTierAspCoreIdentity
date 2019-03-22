@@ -48,10 +48,6 @@ namespace ECommerceTemplate.WebApp
                 .AddCustomStores()
                 .AddDefaultTokenProviders();
 
-
-            var sp = services.BuildServiceProvider();
-            var db = sp.GetService<AppDbContext>();
-
             // Add application services.
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
