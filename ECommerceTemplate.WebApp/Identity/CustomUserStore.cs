@@ -49,8 +49,8 @@ namespace ECommerceTemplate.WebApp.Identity
         {
             try
             {
-                if (cancellationToken != null)
-                    cancellationToken.ThrowIfCancellationRequested();
+                //if (cancellationToken != null)
+                //    cancellationToken.ThrowIfCancellationRequested();
 
                 if (user == null)
                     throw new ArgumentNullException(nameof(user));
@@ -72,8 +72,8 @@ namespace ECommerceTemplate.WebApp.Identity
         {
             try
             {
-                if (cancellationToken != null)
-                    cancellationToken.ThrowIfCancellationRequested();
+                //if (cancellationToken != null)
+                //    cancellationToken.ThrowIfCancellationRequested();
 
                 if (user == null)
                     throw new ArgumentNullException(nameof(user));
@@ -91,8 +91,8 @@ namespace ECommerceTemplate.WebApp.Identity
 
         public Task<ApplicationUser> FindByIdAsync(string userId, CancellationToken cancellationToken)
         {
-            if (cancellationToken != null)
-                cancellationToken.ThrowIfCancellationRequested();
+            //if (cancellationToken != null)
+            //    cancellationToken.ThrowIfCancellationRequested();
 
             if (string.IsNullOrWhiteSpace(userId))
                 throw new ArgumentNullException(nameof(userId));
@@ -107,8 +107,8 @@ namespace ECommerceTemplate.WebApp.Identity
 
         public Task<ApplicationUser> FindByNameAsync(string normalizedUserName, CancellationToken cancellationToken)
         {
-            if (cancellationToken != null)
-                cancellationToken.ThrowIfCancellationRequested();
+            //if (cancellationToken != null)
+            //    cancellationToken.ThrowIfCancellationRequested();
 
             var userEntity = _unitOfWork.UserRepository.FindByNormalizedUserName(normalizedUserName);
 
@@ -117,8 +117,8 @@ namespace ECommerceTemplate.WebApp.Identity
 
         public Task<string> GetNormalizedUserNameAsync(ApplicationUser user, CancellationToken cancellationToken)
         {
-            if (cancellationToken != null)
-                cancellationToken.ThrowIfCancellationRequested();
+            //if (cancellationToken != null)
+            //    cancellationToken.ThrowIfCancellationRequested();
 
             if (user == null)
                 throw new ArgumentNullException(nameof(user));
@@ -128,8 +128,8 @@ namespace ECommerceTemplate.WebApp.Identity
 
         public Task<string> GetUserIdAsync(ApplicationUser user, CancellationToken cancellationToken)
         {
-            if (cancellationToken != null)
-                cancellationToken.ThrowIfCancellationRequested();
+            //if (cancellationToken != null)
+            //    cancellationToken.ThrowIfCancellationRequested();
 
             if (user == null)
                 throw new ArgumentNullException(nameof(user));
@@ -139,8 +139,8 @@ namespace ECommerceTemplate.WebApp.Identity
 
         public Task<string> GetUserNameAsync(ApplicationUser user, CancellationToken cancellationToken)
         {
-            if (cancellationToken != null)
-                cancellationToken.ThrowIfCancellationRequested();
+            //if (cancellationToken != null)
+            //    cancellationToken.ThrowIfCancellationRequested();
 
             if (user == null)
                 throw new ArgumentNullException(nameof(user));
@@ -150,8 +150,8 @@ namespace ECommerceTemplate.WebApp.Identity
 
         public Task SetNormalizedUserNameAsync(ApplicationUser user, string normalizedName, CancellationToken cancellationToken)
         {
-            if (cancellationToken != null)
-                cancellationToken.ThrowIfCancellationRequested();
+            //if (cancellationToken != null)
+            //    cancellationToken.ThrowIfCancellationRequested();
 
             if (user == null)
                 throw new ArgumentNullException(nameof(user));
@@ -163,8 +163,8 @@ namespace ECommerceTemplate.WebApp.Identity
 
         public Task SetUserNameAsync(ApplicationUser user, string userName, CancellationToken cancellationToken)
         {
-            if (cancellationToken != null)
-                cancellationToken.ThrowIfCancellationRequested();
+            //if (cancellationToken != null)
+            //    cancellationToken.ThrowIfCancellationRequested();
 
             if (user == null)
                 throw new ArgumentNullException(nameof(user));
@@ -178,8 +178,8 @@ namespace ECommerceTemplate.WebApp.Identity
         {
             try
             {
-                if (cancellationToken != null)
-                    cancellationToken.ThrowIfCancellationRequested();
+                //if (cancellationToken != null)
+                //    cancellationToken.ThrowIfCancellationRequested();
 
                 if (user == null)
                     throw new ArgumentNullException(nameof(user));
@@ -206,8 +206,8 @@ namespace ECommerceTemplate.WebApp.Identity
         #region IUserPasswordStore<ApplicationUser> Members
         public Task SetPasswordHashAsync(ApplicationUser user, string passwordHash, CancellationToken cancellationToken)
         {
-            if (cancellationToken != null)
-                cancellationToken.ThrowIfCancellationRequested();
+            //if (cancellationToken != null)
+            //    cancellationToken.ThrowIfCancellationRequested();
 
             if (user == null)
                 throw new ArgumentNullException(nameof(user));
@@ -219,8 +219,8 @@ namespace ECommerceTemplate.WebApp.Identity
 
         public Task<string> GetPasswordHashAsync(ApplicationUser user, CancellationToken cancellationToken)
         {
-            if (cancellationToken != null)
-                cancellationToken.ThrowIfCancellationRequested();
+            //if (cancellationToken != null)
+            //    cancellationToken.ThrowIfCancellationRequested();
 
             if (user == null)
                 throw new ArgumentNullException(nameof(user));
@@ -230,8 +230,8 @@ namespace ECommerceTemplate.WebApp.Identity
 
         public Task<bool> HasPasswordAsync(ApplicationUser user, CancellationToken cancellationToken)
         {
-            if (cancellationToken != null)
-                cancellationToken.ThrowIfCancellationRequested();
+            //if (cancellationToken != null)
+            //    cancellationToken.ThrowIfCancellationRequested();
 
             if (user == null)
                 throw new ArgumentNullException(nameof(user));
@@ -243,8 +243,8 @@ namespace ECommerceTemplate.WebApp.Identity
         #region IUserEmailStore<ApplicationUser> Members
         public Task SetEmailAsync(ApplicationUser user, string email, CancellationToken cancellationToken)
         {
-            if (cancellationToken != null)
-                cancellationToken.ThrowIfCancellationRequested();
+            //if (cancellationToken != null)
+            //    cancellationToken.ThrowIfCancellationRequested();
 
             if (user == null)
                 throw new ArgumentNullException(nameof(user));
@@ -256,8 +256,8 @@ namespace ECommerceTemplate.WebApp.Identity
 
         public Task<string> GetEmailAsync(ApplicationUser user, CancellationToken cancellationToken)
         {
-            if (cancellationToken != null)
-                cancellationToken.ThrowIfCancellationRequested();
+            //if (cancellationToken != null)
+            //    cancellationToken.ThrowIfCancellationRequested();
 
             if (user == null)
                 throw new ArgumentNullException(nameof(user));
@@ -267,8 +267,8 @@ namespace ECommerceTemplate.WebApp.Identity
 
         public Task<bool> GetEmailConfirmedAsync(ApplicationUser user, CancellationToken cancellationToken)
         {
-            if (cancellationToken != null)
-                cancellationToken.ThrowIfCancellationRequested();
+            //if (cancellationToken != null)
+            //    cancellationToken.ThrowIfCancellationRequested();
 
             if (user == null)
                 throw new ArgumentNullException(nameof(user));
@@ -278,8 +278,8 @@ namespace ECommerceTemplate.WebApp.Identity
 
         public Task SetEmailConfirmedAsync(ApplicationUser user, bool confirmed, CancellationToken cancellationToken)
         {
-            if (cancellationToken != null)
-                cancellationToken.ThrowIfCancellationRequested();
+            //if (cancellationToken != null)
+            //    cancellationToken.ThrowIfCancellationRequested();
 
             if (user == null)
                 throw new ArgumentNullException(nameof(user));
@@ -301,8 +301,8 @@ namespace ECommerceTemplate.WebApp.Identity
 
         public Task<string> GetNormalizedEmailAsync(ApplicationUser user, CancellationToken cancellationToken)
         {
-            if (cancellationToken != null)
-                cancellationToken.ThrowIfCancellationRequested();
+            //if (cancellationToken != null)
+            //    cancellationToken.ThrowIfCancellationRequested();
 
             if (user == null)
                 throw new ArgumentNullException(nameof(user));
@@ -312,8 +312,8 @@ namespace ECommerceTemplate.WebApp.Identity
 
         public Task SetNormalizedEmailAsync(ApplicationUser user, string normalizedEmail, CancellationToken cancellationToken)
         {
-            if (cancellationToken != null)
-                cancellationToken.ThrowIfCancellationRequested();
+            //if (cancellationToken != null)
+            //    cancellationToken.ThrowIfCancellationRequested();
 
             if (user == null)
                 throw new ArgumentNullException(nameof(user));
@@ -327,8 +327,8 @@ namespace ECommerceTemplate.WebApp.Identity
         #region IUserLoginStore<ApplicationUser> Members
         public Task AddLoginAsync(ApplicationUser user, UserLoginInfo login, CancellationToken cancellationToken)
         {
-            if (cancellationToken != null)
-                cancellationToken.ThrowIfCancellationRequested();
+            //if (cancellationToken != null)
+            //    cancellationToken.ThrowIfCancellationRequested();
 
             if (user == null)
                 throw new ArgumentNullException(nameof(user));
@@ -358,8 +358,8 @@ namespace ECommerceTemplate.WebApp.Identity
 
         public Task RemoveLoginAsync(ApplicationUser user, string loginProvider, string providerKey, CancellationToken cancellationToken)
         {
-            if (cancellationToken != null)
-                cancellationToken.ThrowIfCancellationRequested();
+            //if (cancellationToken != null)
+            //    cancellationToken.ThrowIfCancellationRequested();
 
             if (user == null)
                 throw new ArgumentNullException(nameof(user));
@@ -378,8 +378,8 @@ namespace ECommerceTemplate.WebApp.Identity
 
         public Task<IList<UserLoginInfo>> GetLoginsAsync(ApplicationUser user, CancellationToken cancellationToken)
         {
-            if (cancellationToken != null)
-                cancellationToken.ThrowIfCancellationRequested();
+            //if (cancellationToken != null)
+            //    cancellationToken.ThrowIfCancellationRequested();
 
             if (user == null)
                 throw new ArgumentNullException(nameof(user));
@@ -393,8 +393,8 @@ namespace ECommerceTemplate.WebApp.Identity
 
         public Task<ApplicationUser> FindByLoginAsync(string loginProvider, string providerKey, CancellationToken cancellationToken)
         {
-            if (cancellationToken != null)
-                cancellationToken.ThrowIfCancellationRequested();
+            //if (cancellationToken != null)
+            //    cancellationToken.ThrowIfCancellationRequested();
 
             if (string.IsNullOrWhiteSpace(loginProvider))
                 throw new ArgumentNullException(nameof(loginProvider));
@@ -415,8 +415,8 @@ namespace ECommerceTemplate.WebApp.Identity
         #region IUserRoleStore<ApplicationUser> Members
         public Task AddToRoleAsync(ApplicationUser user, string roleName, CancellationToken cancellationToken)
         {
-            if (cancellationToken != null)
-                cancellationToken.ThrowIfCancellationRequested();
+            //if (cancellationToken != null)
+            //    cancellationToken.ThrowIfCancellationRequested();
 
             if (user == null)
                 throw new ArgumentNullException(nameof(user));
@@ -432,8 +432,8 @@ namespace ECommerceTemplate.WebApp.Identity
 
         public Task RemoveFromRoleAsync(ApplicationUser user, string roleName, CancellationToken cancellationToken)
         {
-            if (cancellationToken != null)
-                cancellationToken.ThrowIfCancellationRequested();
+            //if (cancellationToken != null)
+            //    cancellationToken.ThrowIfCancellationRequested();
 
             if (user == null)
                 throw new ArgumentNullException(nameof(user));
@@ -450,8 +450,8 @@ namespace ECommerceTemplate.WebApp.Identity
 
         public Task<IList<string>> GetRolesAsync(ApplicationUser user, CancellationToken cancellationToken)
         {
-            if (cancellationToken != null)
-                cancellationToken.ThrowIfCancellationRequested();
+            //if (cancellationToken != null)
+            //    cancellationToken.ThrowIfCancellationRequested();
 
             if (user == null)
                 throw new ArgumentNullException(nameof(user));
@@ -464,8 +464,8 @@ namespace ECommerceTemplate.WebApp.Identity
 
         public Task<bool> IsInRoleAsync(ApplicationUser user, string roleName, CancellationToken cancellationToken)
         {
-            if (cancellationToken != null)
-                cancellationToken.ThrowIfCancellationRequested();
+            //if (cancellationToken != null)
+            //    cancellationToken.ThrowIfCancellationRequested();
 
             if (user == null)
                 throw new ArgumentNullException(nameof(user));
@@ -480,8 +480,8 @@ namespace ECommerceTemplate.WebApp.Identity
 
         public Task<IList<ApplicationUser>> GetUsersInRoleAsync(string roleName, CancellationToken cancellationToken)
         {
-            if (cancellationToken != null)
-                cancellationToken.ThrowIfCancellationRequested();
+            //if (cancellationToken != null)
+            //    cancellationToken.ThrowIfCancellationRequested();
 
             if (string.IsNullOrWhiteSpace(roleName))
                 throw new ArgumentNullException(nameof(roleName));
@@ -497,8 +497,8 @@ namespace ECommerceTemplate.WebApp.Identity
         #region IUserSecurityStampStore<ApplicationUser> Members
         public Task SetSecurityStampAsync(ApplicationUser user, string stamp, CancellationToken cancellationToken)
         {
-            if (cancellationToken != null)
-                cancellationToken.ThrowIfCancellationRequested();
+            //if (cancellationToken != null)
+            //    cancellationToken.ThrowIfCancellationRequested();
 
             if (user == null)
                 throw new ArgumentNullException(nameof(user));
@@ -510,8 +510,8 @@ namespace ECommerceTemplate.WebApp.Identity
 
         public Task<string> GetSecurityStampAsync(ApplicationUser user, CancellationToken cancellationToken)
         {
-            if (cancellationToken != null)
-                cancellationToken.ThrowIfCancellationRequested();
+            //if (cancellationToken != null)
+            //    cancellationToken.ThrowIfCancellationRequested();
 
             if (user == null)
                 throw new ArgumentNullException(nameof(user));
@@ -523,8 +523,8 @@ namespace ECommerceTemplate.WebApp.Identity
         #region IUserClaimStore<ApplicationUser> Members
         public Task<IList<Claim>> GetClaimsAsync(ApplicationUser user, CancellationToken cancellationToken)
         {
-            if (cancellationToken != null)
-                cancellationToken.ThrowIfCancellationRequested();
+            //if (cancellationToken != null)
+            //    cancellationToken.ThrowIfCancellationRequested();
 
             if (user == null)
                 throw new ArgumentNullException(nameof(user));
@@ -537,8 +537,8 @@ namespace ECommerceTemplate.WebApp.Identity
 
         public Task AddClaimsAsync(ApplicationUser user, IEnumerable<Claim> claims, CancellationToken cancellationToken)
         {
-            if (cancellationToken != null)
-                cancellationToken.ThrowIfCancellationRequested();
+            //if (cancellationToken != null)
+            //    cancellationToken.ThrowIfCancellationRequested();
 
             if (user == null)
                 throw new ArgumentNullException(nameof(user));
@@ -562,8 +562,8 @@ namespace ECommerceTemplate.WebApp.Identity
 
         public Task ReplaceClaimAsync(ApplicationUser user, Claim claim, Claim newClaim, CancellationToken cancellationToken)
         {
-            if (cancellationToken != null)
-                cancellationToken.ThrowIfCancellationRequested();
+            //if (cancellationToken != null)
+            //    cancellationToken.ThrowIfCancellationRequested();
 
             if (user == null)
                 throw new ArgumentNullException(nameof(user));
@@ -591,8 +591,8 @@ namespace ECommerceTemplate.WebApp.Identity
 
         public Task RemoveClaimsAsync(ApplicationUser user, IEnumerable<Claim> claims, CancellationToken cancellationToken)
         {
-            if (cancellationToken != null)
-                cancellationToken.ThrowIfCancellationRequested();
+            //if (cancellationToken != null)
+            //    cancellationToken.ThrowIfCancellationRequested();
 
             if (user == null)
                 throw new ArgumentNullException(nameof(user));
@@ -617,8 +617,8 @@ namespace ECommerceTemplate.WebApp.Identity
 
         public Task<IList<ApplicationUser>> GetUsersForClaimAsync(Claim claim, CancellationToken cancellationToken)
         {
-            if (cancellationToken != null)
-                cancellationToken.ThrowIfCancellationRequested();
+            //if (cancellationToken != null)
+            //    cancellationToken.ThrowIfCancellationRequested();
 
             if (claim == null)
                 throw new ArgumentNullException(nameof(claim));
@@ -632,8 +632,8 @@ namespace ECommerceTemplate.WebApp.Identity
         #region IUserAuthenticationTokenStore<ApplicationUser> Members
         public Task SetTokenAsync(ApplicationUser user, string loginProvider, string name, string value, CancellationToken cancellationToken)
         {
-            if (cancellationToken != null)
-                cancellationToken.ThrowIfCancellationRequested();
+            //if (cancellationToken != null)
+            //    cancellationToken.ThrowIfCancellationRequested();
 
             if (user == null)
                 throw new ArgumentNullException(nameof(user));
@@ -660,8 +660,8 @@ namespace ECommerceTemplate.WebApp.Identity
 
         public Task RemoveTokenAsync(ApplicationUser user, string loginProvider, string name, CancellationToken cancellationToken)
         {
-            if (cancellationToken != null)
-                cancellationToken.ThrowIfCancellationRequested();
+            //if (cancellationToken != null)
+            //    cancellationToken.ThrowIfCancellationRequested();
 
             if (user == null)
                 throw new ArgumentNullException(nameof(user));
@@ -684,8 +684,8 @@ namespace ECommerceTemplate.WebApp.Identity
 
         public Task<string> GetTokenAsync(ApplicationUser user, string loginProvider, string name, CancellationToken cancellationToken)
         {
-            if (cancellationToken != null)
-                cancellationToken.ThrowIfCancellationRequested();
+            //if (cancellationToken != null)
+            //    cancellationToken.ThrowIfCancellationRequested();
 
             if (user == null)
                 throw new ArgumentNullException(nameof(user));
@@ -705,8 +705,8 @@ namespace ECommerceTemplate.WebApp.Identity
         #region IUserTwoFactorStore<ApplicationUser> Members
         public Task SetTwoFactorEnabledAsync(ApplicationUser user, bool enabled, CancellationToken cancellationToken)
         {
-            if (cancellationToken != null)
-                cancellationToken.ThrowIfCancellationRequested();
+            //if (cancellationToken != null)
+            //    cancellationToken.ThrowIfCancellationRequested();
 
             if (user == null)
                 throw new ArgumentNullException(nameof(user));
@@ -718,8 +718,8 @@ namespace ECommerceTemplate.WebApp.Identity
 
         public Task<bool> GetTwoFactorEnabledAsync(ApplicationUser user, CancellationToken cancellationToken)
         {
-            if (cancellationToken != null)
-                cancellationToken.ThrowIfCancellationRequested();
+            //if (cancellationToken != null)
+            //    cancellationToken.ThrowIfCancellationRequested();
 
             if (user == null)
                 throw new ArgumentNullException(nameof(user));
@@ -731,8 +731,8 @@ namespace ECommerceTemplate.WebApp.Identity
         #region IUserPhoneNumberStore<ApplicationUser> Members
         public Task SetPhoneNumberAsync(ApplicationUser user, string phoneNumber, CancellationToken cancellationToken)
         {
-            if (cancellationToken != null)
-                cancellationToken.ThrowIfCancellationRequested();
+            //if (cancellationToken != null)
+            //    cancellationToken.ThrowIfCancellationRequested();
 
             if (user == null)
                 throw new ArgumentNullException(nameof(user));
@@ -744,8 +744,8 @@ namespace ECommerceTemplate.WebApp.Identity
 
         public Task<string> GetPhoneNumberAsync(ApplicationUser user, CancellationToken cancellationToken)
         {
-            if (cancellationToken != null)
-                cancellationToken.ThrowIfCancellationRequested();
+            //if (cancellationToken != null)
+            //    cancellationToken.ThrowIfCancellationRequested();
 
             if (user == null)
                 throw new ArgumentNullException(nameof(user));
@@ -755,8 +755,8 @@ namespace ECommerceTemplate.WebApp.Identity
 
         public Task<bool> GetPhoneNumberConfirmedAsync(ApplicationUser user, CancellationToken cancellationToken)
         {
-            if (cancellationToken != null)
-                cancellationToken.ThrowIfCancellationRequested();
+            //if (cancellationToken != null)
+            //    cancellationToken.ThrowIfCancellationRequested();
 
             if (user == null)
                 throw new ArgumentNullException(nameof(user));
@@ -766,8 +766,8 @@ namespace ECommerceTemplate.WebApp.Identity
 
         public Task SetPhoneNumberConfirmedAsync(ApplicationUser user, bool confirmed, CancellationToken cancellationToken)
         {
-            if (cancellationToken != null)
-                cancellationToken.ThrowIfCancellationRequested();
+            //if (cancellationToken != null)
+            //    cancellationToken.ThrowIfCancellationRequested();
 
             if (user == null)
                 throw new ArgumentNullException(nameof(user));
@@ -781,8 +781,8 @@ namespace ECommerceTemplate.WebApp.Identity
         #region IUserLockoutStore<ApplicationUser> Members
         public Task<DateTimeOffset?> GetLockoutEndDateAsync(ApplicationUser user, CancellationToken cancellationToken)
         {
-            if (cancellationToken != null)
-                cancellationToken.ThrowIfCancellationRequested();
+            //if (cancellationToken != null)
+            //    cancellationToken.ThrowIfCancellationRequested();
 
             if (user == null)
                 throw new ArgumentNullException(nameof(user));
@@ -792,8 +792,8 @@ namespace ECommerceTemplate.WebApp.Identity
 
         public Task SetLockoutEndDateAsync(ApplicationUser user, DateTimeOffset? lockoutEnd, CancellationToken cancellationToken)
         {
-            if (cancellationToken != null)
-                cancellationToken.ThrowIfCancellationRequested();
+            //if (cancellationToken != null)
+            //    cancellationToken.ThrowIfCancellationRequested();
 
             if (user == null)
                 throw new ArgumentNullException(nameof(user));
@@ -805,8 +805,8 @@ namespace ECommerceTemplate.WebApp.Identity
 
         public Task<int> IncrementAccessFailedCountAsync(ApplicationUser user, CancellationToken cancellationToken)
         {
-            if (cancellationToken != null)
-                cancellationToken.ThrowIfCancellationRequested();
+            //if (cancellationToken != null)
+            //    cancellationToken.ThrowIfCancellationRequested();
 
             if (user == null)
                 throw new ArgumentNullException(nameof(user));
@@ -816,8 +816,8 @@ namespace ECommerceTemplate.WebApp.Identity
 
         public Task ResetAccessFailedCountAsync(ApplicationUser user, CancellationToken cancellationToken)
         {
-            if (cancellationToken != null)
-                cancellationToken.ThrowIfCancellationRequested();
+            //if (cancellationToken != null)
+            //    cancellationToken.ThrowIfCancellationRequested();
 
             if (user == null)
                 throw new ArgumentNullException(nameof(user));
@@ -829,8 +829,8 @@ namespace ECommerceTemplate.WebApp.Identity
 
         public Task<int> GetAccessFailedCountAsync(ApplicationUser user, CancellationToken cancellationToken)
         {
-            if (cancellationToken != null)
-                cancellationToken.ThrowIfCancellationRequested();
+            //if (cancellationToken != null)
+            //    cancellationToken.ThrowIfCancellationRequested();
 
             if (user == null)
                 throw new ArgumentNullException(nameof(user));
@@ -840,8 +840,8 @@ namespace ECommerceTemplate.WebApp.Identity
 
         public Task<bool> GetLockoutEnabledAsync(ApplicationUser user, CancellationToken cancellationToken)
         {
-            if (cancellationToken != null)
-                cancellationToken.ThrowIfCancellationRequested();
+            //if (cancellationToken != null)
+            //    cancellationToken.ThrowIfCancellationRequested();
 
             if (user == null)
                 throw new ArgumentNullException(nameof(user));
@@ -851,8 +851,8 @@ namespace ECommerceTemplate.WebApp.Identity
 
         public Task SetLockoutEnabledAsync(ApplicationUser user, bool enabled, CancellationToken cancellationToken)
         {
-            if (cancellationToken != null)
-                cancellationToken.ThrowIfCancellationRequested();
+            //if (cancellationToken != null)
+            //    cancellationToken.ThrowIfCancellationRequested();
 
             if (user == null)
                 throw new ArgumentNullException(nameof(user));
