@@ -26,8 +26,8 @@ namespace ECommerceTemplate.WebApp.Identity
         {
             try
             {
-                if (cancellationToken != null)
-                    cancellationToken.ThrowIfCancellationRequested();
+                //if (cancellationToken != null)
+                //    cancellationToken.ThrowIfCancellationRequested();
 
                 if (role == null)
                     throw new ArgumentNullException(nameof(role));
@@ -49,8 +49,8 @@ namespace ECommerceTemplate.WebApp.Identity
         {
             try
             {
-                if (cancellationToken != null)
-                    cancellationToken.ThrowIfCancellationRequested();
+                //if (cancellationToken != null)
+                //    cancellationToken.ThrowIfCancellationRequested();
 
                 if (role == null)
                     throw new ArgumentNullException(nameof(role));
@@ -68,8 +68,8 @@ namespace ECommerceTemplate.WebApp.Identity
 
         public Task<IdentityRole> FindByIdAsync(string roleId, CancellationToken cancellationToken)
         {
-            if (cancellationToken != null)
-                cancellationToken.ThrowIfCancellationRequested();
+            //if (cancellationToken != null)
+            //    cancellationToken.ThrowIfCancellationRequested();
 
             if (string.IsNullOrWhiteSpace(roleId))
                 throw new ArgumentNullException(nameof(roleId));
@@ -83,8 +83,8 @@ namespace ECommerceTemplate.WebApp.Identity
 
         public Task<IdentityRole> FindByNameAsync(string normalizedRoleName, CancellationToken cancellationToken)
         {
-            if (cancellationToken != null)
-                cancellationToken.ThrowIfCancellationRequested();
+            //if (cancellationToken != null)
+            //    cancellationToken.ThrowIfCancellationRequested();
 
             if (string.IsNullOrWhiteSpace(normalizedRoleName))
                 throw new ArgumentNullException(nameof(normalizedRoleName));
@@ -95,8 +95,8 @@ namespace ECommerceTemplate.WebApp.Identity
 
         public Task<string> GetNormalizedRoleNameAsync(IdentityRole role, CancellationToken cancellationToken)
         {
-            if (cancellationToken != null)
-                cancellationToken.ThrowIfCancellationRequested();
+            //if (cancellationToken != null)
+            //    cancellationToken.ThrowIfCancellationRequested();
 
             if (role == null)
                 throw new ArgumentNullException(nameof(role));
@@ -106,8 +106,8 @@ namespace ECommerceTemplate.WebApp.Identity
 
         public Task<string> GetRoleIdAsync(IdentityRole role, CancellationToken cancellationToken)
         {
-            if (cancellationToken != null)
-                cancellationToken.ThrowIfCancellationRequested();
+            //if (cancellationToken != null)
+            //    cancellationToken.ThrowIfCancellationRequested();
 
             if (role == null)
                 throw new ArgumentNullException(nameof(role));
@@ -117,8 +117,8 @@ namespace ECommerceTemplate.WebApp.Identity
 
         public Task<string> GetRoleNameAsync(IdentityRole role, CancellationToken cancellationToken)
         {
-            if (cancellationToken != null)
-                cancellationToken.ThrowIfCancellationRequested();
+            //if (cancellationToken != null)
+            //    cancellationToken.ThrowIfCancellationRequested();
 
             if (role == null)
                 throw new ArgumentNullException(nameof(role));
@@ -128,8 +128,8 @@ namespace ECommerceTemplate.WebApp.Identity
 
         public Task SetNormalizedRoleNameAsync(IdentityRole role, string normalizedName, CancellationToken cancellationToken)
         {
-            if (cancellationToken != null)
-                cancellationToken.ThrowIfCancellationRequested();
+            //if (cancellationToken != null)
+            //    cancellationToken.ThrowIfCancellationRequested();
 
             if (role == null)
                 throw new ArgumentNullException(nameof(role));
@@ -141,8 +141,8 @@ namespace ECommerceTemplate.WebApp.Identity
 
         public Task SetRoleNameAsync(IdentityRole role, string roleName, CancellationToken cancellationToken)
         {
-            if (cancellationToken != null)
-                cancellationToken.ThrowIfCancellationRequested();
+            //if (cancellationToken != null)
+            //    cancellationToken.ThrowIfCancellationRequested();
 
             if (role == null)
                 throw new ArgumentNullException(nameof(role));
@@ -156,8 +156,8 @@ namespace ECommerceTemplate.WebApp.Identity
         {
             try
             {
-                if (cancellationToken != null)
-                    cancellationToken.ThrowIfCancellationRequested();
+                //if (cancellationToken != null)
+                //    cancellationToken.ThrowIfCancellationRequested();
 
                 if (role == null)
                     throw new ArgumentNullException(nameof(role));
@@ -184,8 +184,8 @@ namespace ECommerceTemplate.WebApp.Identity
         #region IRoleClaimStore<IdentityRole> Members
         public Task<IList<Claim>> GetClaimsAsync(IdentityRole role, CancellationToken cancellationToken = default(CancellationToken))
         {
-            if (cancellationToken != null)
-                cancellationToken.ThrowIfCancellationRequested();
+            //if (cancellationToken != null)
+            //    cancellationToken.ThrowIfCancellationRequested();
 
             if (role == null)
                 throw new ArgumentNullException(nameof(role));
@@ -197,8 +197,8 @@ namespace ECommerceTemplate.WebApp.Identity
 
         public Task AddClaimAsync(IdentityRole role, Claim claim, CancellationToken cancellationToken = default(CancellationToken))
         {
-            if (cancellationToken != null)
-                cancellationToken.ThrowIfCancellationRequested();
+            //if (cancellationToken != null)
+            //    cancellationToken.ThrowIfCancellationRequested();
 
             if (role == null)
                 throw new ArgumentNullException(nameof(role));
@@ -221,8 +221,8 @@ namespace ECommerceTemplate.WebApp.Identity
 
         public Task RemoveClaimAsync(IdentityRole role, Claim claim, CancellationToken cancellationToken = default(CancellationToken))
         {
-            if (cancellationToken != null)
-                cancellationToken.ThrowIfCancellationRequested();
+            //if (cancellationToken != null)
+            //    cancellationToken.ThrowIfCancellationRequested();
 
             if (role == null)
                 throw new ArgumentNullException(nameof(role));
